@@ -8,18 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>STS、Myeclipse、EclipseEE版等连接Oracle时报一系列错误 | MyStudyBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="当在以上软件内连接Oracle时总是报错,这时候我一直在试&amp;emsp;&amp;emsp;1、jdbc:oracle:thin:@server:1521:xe、jdbc:oracle:thin:@server:1521:db&amp;emsp;&amp;emsp;2、Host：localhost&amp;emsp;&amp;emsp;3、portnumber：1521&amp;emsp;&amp;emsp;4、name：sys； password：**">
+  <meta name="description" content="当在以上软件内连接Oracle时总是报错,这时候我一直在试">
 <meta name="keywords" content="Oracle,STS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STS、Myeclipse、EclipseEE版等连接Oracle时报一系列错误">
 <meta property="og:url" content="http://yoursite.com/2019/09/25/STS、Myeclipse、EclipseEE版等连接Oracle时报一系列错误/index.html">
 <meta property="og:site_name" content="MyStudyBlog">
-<meta property="og:description" content="当在以上软件内连接Oracle时总是报错,这时候我一直在试&amp;emsp;&amp;emsp;1、jdbc:oracle:thin:@server:1521:xe、jdbc:oracle:thin:@server:1521:db&amp;emsp;&amp;emsp;2、Host：localhost&amp;emsp;&amp;emsp;3、portnumber：1521&amp;emsp;&amp;emsp;4、name：sys； password：**">
+<meta property="og:description" content="当在以上软件内连接Oracle时总是报错,这时候我一直在试">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-25T14:08:33.557Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/27/uuOVWF.jpg">
+<meta property="og:updated_time" content="2019-09-27T04:24:05.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STS、Myeclipse、EclipseEE版等连接Oracle时报一系列错误">
-<meta name="twitter:description" content="当在以上软件内连接Oracle时总是报错,这时候我一直在试&amp;emsp;&amp;emsp;1、jdbc:oracle:thin:@server:1521:xe、jdbc:oracle:thin:@server:1521:db&amp;emsp;&amp;emsp;2、Host：localhost&amp;emsp;&amp;emsp;3、portnumber：1521&amp;emsp;&amp;emsp;4、name：sys； password：**">
+<meta name="twitter:description" content="当在以上软件内连接Oracle时总是报错,这时候我一直在试">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/27/uuOVWF.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyStudyBlog" type="application/atom+xml">
   
@@ -102,9 +104,9 @@
 
 
 		<nav>
-		总文章数 6
+		总文章数 7
 		</nav>
-		总字数 <span class="post-count">681</span>
+		总字数 <span class="post-count">905</span>
 	</header>
 	
 		
@@ -198,7 +200,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="当在以上软件内连接Oracle时总是报错-这时候我一直在试"><a href="#当在以上软件内连接Oracle时总是报错-这时候我一直在试" class="headerlink" title="当在以上软件内连接Oracle时总是报错,这时候我一直在试"></a>当在以上软件内连接Oracle时总是报错,这时候我一直在试</h3><p>&emsp;&emsp;1、jdbc:oracle:thin:@server:1521:xe、jdbc:oracle:thin:@server:1521:db<br>&emsp;&emsp;2、Host：localhost<br>&emsp;&emsp;3、portnumber：1521<br>&emsp;&emsp;4、name：sys； password：<strong>**</strong><br>&emsp;&emsp;5、USER、ALL、DBA，<br>&emsp;&emsp;就这么几个参数，修改这个修改那个，Test connection时报的都是不一样的错误<br>&emsp;&emsp;后来，看了这位大哥的指示：<a href="https://blog.csdn.net/qq_16183731/article/details/83864811" target="_blank" rel="noopener">https://blog.csdn.net/qq_16183731/article/details/83864811</a><br>&emsp;&emsp;原来问题出在用户名身上，得新建一个普通用户然后连接我们的Oracle，具体请看链接。<br>&emsp;&emsp;这个问题困扰了我太久太久，之前一度都想放弃连接Oracle了。</p>
+        <h3 id="当在以上软件内连接Oracle时总是报错-这时候我一直在试"><a href="#当在以上软件内连接Oracle时总是报错-这时候我一直在试" class="headerlink" title="当在以上软件内连接Oracle时总是报错,这时候我一直在试"></a>当在以上软件内连接Oracle时总是报错,这时候我一直在试</h3><p><img src="https://s2.ax1x.com/2019/09/27/uuOVWF.jpg" alt="uuOVWF.jpg"></p>
+<a id="more"></a>
+<p>&emsp;&emsp;1、jdbc:oracle:thin:@server:1521:xe、jdbc:oracle:thin:@server:1521:db<br>&emsp;&emsp;2、Host：localhost<br>&emsp;&emsp;3、portnumber：1521<br>&emsp;&emsp;4、name：sys； password：<strong>**</strong><br>&emsp;&emsp;5、USER、ALL、DBA，<br>&emsp;&emsp;就这么几个参数，修改这个修改那个，Test connection时报的都是不一样的错误<br>&emsp;&emsp;后来，看了这位大哥的指示：<a href="https://blog.csdn.net/qq_16183731/article/details/83864811" target="_blank" rel="noopener">https://blog.csdn.net/qq_16183731/article/details/83864811</a><br>&emsp;&emsp;原来问题出在用户名身上，得新建一个普通用户然后连接我们的Oracle，具体请看链接。<br>&emsp;&emsp;这个问题困扰了我太久太久，之前一度都想放弃连接Oracle了。</p>
 
       
 
@@ -306,6 +310,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/09/27/远程电脑控制的两款应用分享/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          远程电脑控制的两款应用分享
+        
+      </div>
+    </a>
   
   
     <a href="/2019/09/25/PL-SQL连接Oracle时报错ORA-06413解决办法/" id="article-nav-older" class="article-nav-link-wrap">
@@ -486,6 +499,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">STS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">远程控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">App</a>
               </li>
              
               <li class="article-tag-list-item">
