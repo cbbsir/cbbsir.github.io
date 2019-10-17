@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>The POM for com.taotao:taotao-common:jar:0.0.1-SNAPSHOT is missing, no dependency | MyStudyBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="��ؽ������">
-<meta name="keywords" content="����,j2ee">
+  <meta name="description" content="相关解决方法">
+<meta name="keywords" content="电商,j2ee">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The POM for com.taotao:taotao-common:jar:0.0.1-SNAPSHOT is missing, no dependency">
 <meta property="og:url" content="http://yoursite.com/2019/10/17/The-POM-for-com-taotao-taotao-common-jar-0-0-1-SNAPSHOT-is-missing-no-dependency/index.html">
 <meta property="og:site_name" content="MyStudyBlog">
-<meta property="og:description" content="��ؽ������">
+<meta property="og:description" content="相关解决方法">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/17/KAac2d.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/17/KAUWAU.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/17/KAUx9H.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/10/17/KAUWAU.png">
-<meta property="og:updated_time" content="2019-10-17T07:26:04.133Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/17/KAdqYD.png">
+<meta property="og:updated_time" content="2019-10-17T07:31:46.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The POM for com.taotao:taotao-common:jar:0.0.1-SNAPSHOT is missing, no dependency">
-<meta name="twitter:description" content="��ؽ������">
+<meta name="twitter:description" content="相关解决方法">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/10/17/KAac2d.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyStudyBlog" type="application/atom+xml">
@@ -109,7 +109,7 @@
 		<nav>
 		总文章数 10
 		</nav>
-		总字数 <span class="post-count">1.6k</span>
+		总字数 <span class="post-count">1.7k</span>
 	</header>
 	
 		
@@ -198,17 +198,23 @@
       </header>
 
       <div align="center" class="post-count">
-	字数：19字 | 预计阅读时长：1分钟
+	字数：107字 | 预计阅读时长：1分钟
 	</div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="��ؽ������"><a href="#��ؽ������" class="headerlink" title="��ؽ������"></a>��ؽ������</h2><p><img src="https://s2.ax1x.com/2019/10/17/KAac2d.jpg" alt="KAac2d.jpg">  </p>
+        <h2 id="相关解决方法"><a href="#相关解决方法" class="headerlink" title="相关解决方法"></a>相关解决方法</h2><p><img src="https://s2.ax1x.com/2019/10/17/KAac2d.jpg" alt="KAac2d.jpg">  </p>
 <a id="more"></a>
 
-<p>������ڶ಩�ͽ������֮�󣬴�����û�еõ����  </p>
+<p>在浏览众多博客解决方案之后，错误还是没有得到解决  </p>
 <blockquote>
-<p>�Դ�һ���鿴���زֿ��Ƿ���<br><img src="https://s2.ax1x.com/2019/10/17/KAUWAU.png" alt="KAUWAU.png"><br>�ҵı������еģ�����maven buildʱ���Ǳ����Ҳ���<br>�Դ��������⣩��<br>���ݴ�������Ų����⣬�������²���maven install��taotao-common<br><img src="https://s2.ax1x.com/2019/10/17/KAUx9H.png" alt="KAUx9H.png"><br>ִ�н������ֱ��زֿ⣺<br><img src="https://s2.ax1x.com/2019/10/17/KAUWAU.png" alt="KAUWAU.png"><br>����ٴ�maven build��taotao-manager<br>Congratulation��Build Successfull.</p>
+<p><strong>试错一：查看本地仓库是否有</strong><br><img src="https://s2.ax1x.com/2019/10/17/KAUWAU.png" alt="KAUWAU.png"><br>我的本地是有的，但是maven build时还是报错找不到</p>
+</blockquote>
+<blockquote>
+<p><strong>试错二（正解）：</strong><br>根据错误错误排查问题，按照如下步骤maven install：taotao-common<br><img src="https://s2.ax1x.com/2019/10/17/KAUx9H.png" alt="KAUx9H.png"><br>执行结束后发现本地仓库：<br><img src="https://s2.ax1x.com/2019/10/17/KAdqYD.png" alt="KAdqYD.png"><br><strong>最后，再次maven build：taotao-manager</strong></p>
+</blockquote>
+<blockquote>
+<p><em>Congratulation！Build Successfull.</em></p>
 </blockquote>
 
       
@@ -244,7 +250,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">����</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电商</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -472,6 +478,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Internet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Operation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Music</a>
               </li>
              
@@ -484,14 +498,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Internet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Operation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
@@ -500,15 +506,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">����</a>
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,6 +523,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">App</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
             
             <div class="clearfix"></div>
