@@ -8,18 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>10-21 | MyStudyBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LifeComponent">
-<meta name="keywords" content="javaEE, 物联网应用, MySQL">
+  <meta name="description" content="解决使用git时 *fatal: remote origin already exists. *github挺好，目前存代码我使用的是国内的码云">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="10-21">
-<meta property="og:url" content="http://yoursite.com/2019/10/22/10-21/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/10/21/10-21/index.html">
 <meta property="og:site_name" content="MyStudyBlog">
-<meta property="og:description" content="LifeComponent">
+<meta property="og:description" content="解决使用git时 *fatal: remote origin already exists. *github挺好，目前存代码我使用的是国内的码云">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-22T08:45:00.845Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/22/KGVyLR.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/22/KGAQTf.png">
+<meta property="og:updated_time" content="2019-10-22T12:41:28.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10-21">
-<meta name="twitter:description" content="LifeComponent">
+<meta name="twitter:description" content="解决使用git时 *fatal: remote origin already exists. *github挺好，目前存代码我使用的是国内的码云">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/10/22/KGVyLR.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyStudyBlog" type="application/atom+xml">
   
@@ -104,7 +107,7 @@
 		<nav>
 		总文章数 12
 		</nav>
-		总字数 <span class="post-count">1.8k</span>
+		总字数 <span class="post-count">1.9k</span>
 	</header>
 	
 		
@@ -186,19 +189,37 @@
   
 
         
-        <a href="/2019/10/22/10-21/" class="archive-article-date">
-  	<time datetime="2019-10-22T08:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
+        <a href="/2019/10/21/10-21/" class="archive-article-date">
+  	<time datetime="2019-10-21T08:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-21</time>
 </a>
         
       </header>
 
       <div align="center" class="post-count">
-	字数：0字 | 预计阅读时长：1分钟
+	字数：133字 | 预计阅读时长：1分钟
 	</div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="解决使用git时-fatal-remote-origin-already-exists"><a href="#解决使用git时-fatal-remote-origin-already-exists" class="headerlink" title="解决使用git时 *fatal: remote origin already exists. *"></a>解决使用git时 *<em>fatal: remote origin already exists. *</em></h2><h2 id="github挺好，目前存代码我使用的是国内的码云"><a href="#github挺好，目前存代码我使用的是国内的码云" class="headerlink" title="github挺好，目前存代码我使用的是国内的码云"></a>github挺好，目前存代码我使用的是国内的码云</h2><p><img src="https://s2.ax1x.com/2019/10/22/KGVyLR.jpg" alt="KGVyLR.jpg"></p>
+<a id="more"></a>
+
+<p>当我们添加git远程地址时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:cbbsir/mytest.git</span><br></pre></td></tr></table></figure>
+
+<p>若出现如下错误：<br><img src="https://s2.ax1x.com/2019/10/22/KGAQTf.png" alt="KGAQTf.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: remote origin already exists.</span><br></pre></td></tr></table></figure>
+
+<p>我们可以先执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure>
+
+<p>然后再重新添加git远程仓库地址，即总的步骤就是：</p>
+<ul>
+<li>git remote rm origin</li>
+<li>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:<strong>cbbsir</strong>/mytest.git</li>
+<li>git push -u origin master<br>其中加粗部分需要换成自己的用户名</li>
+</ul>
+
       
 
       
@@ -227,6 +248,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -277,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/22/10-21/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/21/10-21/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -324,7 +356,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2019/10/22/10-21/", 
+    url: "http://yoursite.com/2019/10/21/10-21/", 
     sourceId: "10-21",
     productKey: "true",
     target: "cloud-tie-wrapper"
@@ -441,23 +473,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HEXO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Music</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Wangyiyun</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Andriod</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HEXO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,7 +493,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color1">Music</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Wangyiyun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,15 +513,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">STS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">STS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,6 +526,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">App</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
             
             <div class="clearfix"></div>
