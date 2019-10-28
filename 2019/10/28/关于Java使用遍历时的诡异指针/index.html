@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Algorithm | MyStudyBlog</title>
+  <title>关于Java使用遍历时的诡异指针 | MyStudyBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LifeComponent">
-<meta name="keywords" content="javaEE, 物联网应用, MySQL">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MyStudyBlog">
-<meta property="og:url" content="http://yoursite.com/tags/Algorithm/index.html">
+  <meta name="description" content="奇葩奇葩，半天的Debug终于发现问题了">
+<meta name="keywords" content="Java,Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Java使用遍历时的诡异指针">
+<meta property="og:url" content="http://yoursite.com/2019/10/28/关于Java使用遍历时的诡异指针/index.html">
 <meta property="og:site_name" content="MyStudyBlog">
-<meta property="og:description" content="LifeComponent">
+<meta property="og:description" content="奇葩奇葩，半天的Debug终于发现问题了">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/Kcvn6x.md.jpg">
+<meta property="og:updated_time" content="2019-10-28T11:02:41.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MyStudyBlog">
-<meta name="twitter:description" content="LifeComponent">
+<meta name="twitter:title" content="关于Java使用遍历时的诡异指针">
+<meta name="twitter:description" content="奇葩奇葩，半天的Debug终于发现问题了">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/10/28/Kcvn6x.md.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyStudyBlog" type="application/atom+xml">
   
@@ -173,36 +176,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-关于Java使用遍历时的诡异指针" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/28/关于Java使用遍历时的诡异指针/" class="archive-article-date">
-  	<time datetime="2019-10-28T10:05:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/28/关于Java使用遍历时的诡异指针/">关于Java使用遍历时的诡异指针</a>
+    <h1 class="article-title" itemprop="name">
+      关于Java使用遍历时的诡异指针
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/28/关于Java使用遍历时的诡异指针/" class="archive-article-date">
+  	<time datetime="2019-10-28T10:05:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
+</a>
+        
+      </header>
+
+      <div align="center" class="post-count">
+	字数：885字 | 预计阅读时长：4分钟
+	</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="奇葩奇葩，半天的Debug终于发现问题了"><a href="#奇葩奇葩，半天的Debug终于发现问题了" class="headerlink" title="奇葩奇葩，半天的Debug终于发现问题了"></a>奇葩奇葩，半天的Debug终于发现问题了</h5><p><a href="https://imgchr.com/i/Kcvn6x" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/10/28/Kcvn6x.md.jpg" alt="Kcvn6x.md.jpg"></a></p>
+<a id="more"></a>
+
+<p>今天使用HashMap玩耍时，简单点来说就是实现贪心算法，总觉得哪儿不对劲，不过还好没花太多时间就找到了（也就四五个小时吧，想到这我就心酸），下面是一段诡异代码，为了能有上下文，故贴出了所有代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">       <span class="comment">//各个盒子</span></span><br><span class="line">		HashSet&lt;String&gt; hashSet1= <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">		HashSet&lt;String&gt; hashSet2= <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">		HashSet&lt;String&gt; hashSet3= <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">		HashSet&lt;String&gt; hashSet4= <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">		HashSet&lt;String&gt; hashSet5= <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">		HashSet&lt;String&gt; hashSet6= <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">		</span><br><span class="line">		HashSet&lt;String&gt; hashSet7= <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//记录 拥有所有个体且所用到的集合最少的 这些集合</span></span><br><span class="line">		ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList();;</span><br><span class="line">		</span><br><span class="line">		hashSet1.add(<span class="string">"A"</span>);</span><br><span class="line">		hashSet1.add(<span class="string">"B"</span>);</span><br><span class="line">		hashSet1.add(<span class="string">"E"</span>);</span><br><span class="line">		</span><br><span class="line">		hashSet2.add(<span class="string">"A"</span>);</span><br><span class="line">		hashSet2.add(<span class="string">"E"</span>);</span><br><span class="line">		hashSet2.add(<span class="string">"G"</span>);</span><br><span class="line">		</span><br><span class="line">		hashSet3.add(<span class="string">"A"</span>);</span><br><span class="line">		hashSet3.add(<span class="string">"B"</span>);</span><br><span class="line">		hashSet3.add(<span class="string">"D"</span>);</span><br><span class="line">		hashSet3.add(<span class="string">"E"</span>);</span><br><span class="line">		</span><br><span class="line">		hashSet4.add(<span class="string">"A"</span>);</span><br><span class="line">		hashSet4.add(<span class="string">"B"</span>);</span><br><span class="line">		hashSet4.add(<span class="string">"D"</span>);</span><br><span class="line">		hashSet4.add(<span class="string">"F"</span>);</span><br><span class="line">		</span><br><span class="line">		hashSet5.add(<span class="string">"C"</span>);</span><br><span class="line">		hashSet5.add(<span class="string">"D"</span>);</span><br><span class="line">		hashSet5.add(<span class="string">"E"</span>);</span><br><span class="line">		</span><br><span class="line">		hashSet6.add(<span class="string">"B"</span>);</span><br><span class="line">		hashSet6.add(<span class="string">"E"</span>);</span><br><span class="line">		hashSet6.add(<span class="string">"F"</span>);</span><br><span class="line">		</span><br><span class="line">		hashSet7.add(<span class="string">"A"</span>);</span><br><span class="line">		hashSet7.add(<span class="string">"G"</span>);</span><br><span class="line">		hashSet7.add(<span class="string">"H"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//所有个体</span></span><br><span class="line">		HashSet hashSetAll = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">		hashSetAll.add(<span class="string">"A"</span>);</span><br><span class="line">		hashSetAll.add(<span class="string">"B"</span>);</span><br><span class="line">		hashSetAll.add(<span class="string">"C"</span>);</span><br><span class="line">		hashSetAll.add(<span class="string">"D"</span>);</span><br><span class="line">		hashSetAll.add(<span class="string">"E"</span>);</span><br><span class="line">		hashSetAll.add(<span class="string">"F"</span>);</span><br><span class="line">		hashSetAll.add(<span class="string">"G"</span>);</span><br><span class="line">		hashSetAll.add(<span class="string">"H"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//向hashMap中添加所有盒子</span></span><br><span class="line">		hashMap.put(<span class="string">"k1"</span>, hashSet1);</span><br><span class="line">		hashMap.put(<span class="string">"k2"</span>, hashSet2);</span><br><span class="line">		hashMap.put(<span class="string">"k3"</span>, hashSet3);</span><br><span class="line">		hashMap.put(<span class="string">"k4"</span>, hashSet4);</span><br><span class="line">		hashMap.put(<span class="string">"k5"</span>, hashSet5);</span><br><span class="line">		hashMap.put(<span class="string">"k6"</span>, hashSet6);</span><br><span class="line">		hashMap.put(<span class="string">"k7"</span>, hashSet7);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//置maxKey为空</span></span><br><span class="line">		String maxKey = <span class="keyword">null</span>;</span><br><span class="line">		<span class="comment">//初始化HashMap</span></span><br><span class="line">        HashMap&lt;String,HashSet&lt;String&gt;&gt; hashMap = <span class="keyword">new</span> HashMap&lt;String,HashSet&lt;String&gt;&gt;();</span><br><span class="line">		<span class="comment">//初始化两个代理HashSet</span></span><br><span class="line">		<span class="comment">//hashSetM用来临时存储hashMap遍历过程中的keySet</span></span><br><span class="line">        HashSet hashSetM = <span class="keyword">new</span> HashSet();</span><br><span class="line">		<span class="comment">//hashSetN用来临时存储hashMap在一次遍历过程中所包含个体最多的keySet</span></span><br><span class="line">        HashSet hashSetN = <span class="keyword">new</span> HashSet();</span><br><span class="line">        <span class="comment">//开始遍历，并且移除已选择集合所包含的个体</span></span><br><span class="line">        <span class="keyword">while</span> (hashSetAll.size() != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//每次循环都重置maxKey</span></span><br><span class="line">            maxKey = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (String key : hashMap.keySet() ) &#123;</span><br><span class="line">                <span class="comment">//清空代理HashSet</span></span><br><span class="line">                hashSetM.clear();</span><br><span class="line">                hashSetN.clear();</span><br><span class="line">                </span><br><span class="line">			   <span class="comment">//获取当前key的集合</span></span><br><span class="line">                hashSetM = hashMap1.get(key);</span><br><span class="line">                <span class="comment">//取与所有个体的交集</span></span><br><span class="line">                hashSetM.retainAll(hashSetAll);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//已遍历的包含最多个体的集合</span></span><br><span class="line">                hashSetN = hashMap1.get(maxKey);</span><br><span class="line">			   hashSetN.retainAll(hashSetAll);</span><br><span class="line">                <span class="keyword">if</span> (hashSetAll.size() &gt; <span class="number">0</span> &amp;&amp; (maxKey == <span class="keyword">null</span> || (hashSetTemp.size() &gt; hashSetCompare.size()))) &#123;</span><br><span class="line">                    <span class="comment">//记录包含个体最多的集合</span></span><br><span class="line">                    maxKey = key;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxKey != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="comment">//移除 包含所有个体中的 已经选中了的个体</span></span><br><span class="line">				hashSetAll.removeAll(hashMap1.get(maxKey));</span><br><span class="line">				<span class="comment">//记录选中了哪几个集合</span></span><br><span class="line">				list.add(maxKey);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//一直死循环</span></span><br></pre></td></tr></table></figure>
+
+<p>以下为遍历时一直出问题的修改后的正确代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (hashSetAll.size() != <span class="number">0</span>) &#123;</span><br><span class="line">           <span class="comment">//每次循环都重置maxKey</span></span><br><span class="line">           maxKey = <span class="keyword">null</span>;</span><br><span class="line">           <span class="keyword">for</span> (String key : hashMap.keySet() ) &#123;</span><br><span class="line">               <span class="comment">//清空代理HashSet</span></span><br><span class="line">               hashSetM.clear();</span><br><span class="line">               hashSetN.clear();</span><br><span class="line">               </span><br><span class="line">		   <span class="comment">//获取当前key的集合</span></span><br><span class="line"><span class="comment">//               hashSetM = hashMap1.get(key);</span></span><br><span class="line">               <span class="comment">//定义一个局部的集合</span></span><br><span class="line">               HashSet h1 = hashMap.get(key);</span><br><span class="line">               <span class="comment">//将局部集合添加到hashSetM</span></span><br><span class="line">		   hashSetM.addAll(h1);</span><br><span class="line">               <span class="comment">//取与所有个体的交集</span></span><br><span class="line">               hashSetM.retainAll(hashSetAll);</span><br><span class="line"></span><br><span class="line">               <span class="comment">//已遍历的包含最多个体的集合</span></span><br><span class="line"><span class="comment">//               hashSetN = hashMap1.get(maxKey);</span></span><br><span class="line">               <span class="comment">//同理</span></span><br><span class="line">               HashSet h2 = hashMap.get(maxKey);</span><br><span class="line">		   hashSetN.addAll(h2);</span><br><span class="line">		   hashSetN.retainAll(hashSetAll);</span><br><span class="line">               <span class="keyword">if</span> (hashSetAll.size() &gt; <span class="number">0</span> &amp;&amp; (maxKey == <span class="keyword">null</span> || (hashSetTemp.size() &gt; hashSetCompare.size()))) &#123;</span><br><span class="line">                   <span class="comment">//记录包含个体最多的集合</span></span><br><span class="line">                   maxKey = key;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">//最后输出list的结果为：[k3,k7,k4,k5]</span></span><br></pre></td></tr></table></figure>
+
+<p>分析诡异代码的原因：</p>
+<ul>
+<li><p>hashMap1.get(key)返回的是一个集合，（不知道有没有指针）</p>
+</li>
+<li><p>当hashSetM = hashMap.get(key)之后，再hashSetM.clear()，就会将 hashMap.get(key)清空，这就导致了每遍历一次 hashMap就会相应地清空一个键值对。这也就是我Debug时困惑的点：咋么回事？遍历一个就删除一个，没这道理吧。</p>
+</li>
+</ul>
+<p>解决办法：</p>
+<ul>
+<li>添加局部变量，将返回值以属性的形式添加到临时集合中</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -218,57 +264,117 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/28/关于Java使用遍历时的诡异指针/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/14/回顾算法篇（一）/" class="archive-article-date">
-  	<time datetime="2019-10-14T11:40:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/27/SpringBoot-SpringCloud原理与应用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot &amp;&amp; SpringCloud原理与应用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/14/回顾算法篇（一）/">回顾算法篇（一）</a>
-    </h1>
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2019/10/28/关于Java使用遍历时的诡异指针/", 
+    sourceId: "关于Java使用遍历时的诡异指针",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -298,9 +404,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

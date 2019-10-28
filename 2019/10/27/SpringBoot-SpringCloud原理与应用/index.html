@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SpringBoot &amp;&amp; SpringCloud原理与应用 | MyStudyBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Druid 配置Bean、.properties、yaml  Lombok  简化getter/setter方法     Eureka注册中心  高可用 负载均衡   Hystrix  保护机制 线程隔离，服务降级 自定义超时时长（源码默认为1000ms） 熔断（熔断器关闭、打开、半开）   Feign  简化代码，取代RestTemplate进行远程调用">
+  <meta name="description" content="Druid 配置Bean、.properties、yaml  Lombok  简化getter/setter方法     Eureka注册中心  高可用 负载均衡   Hystrix  保护机制 线程隔离，服务降级 自定义超时时长（源码默认为1000ms） 熔断（熔断器关闭、打开、半开）   Feign  简化代码，取代RestTemplate进行远程调用，不用再拼接url 可开启Hystrix">
 <meta name="keywords" content="SpringBoot,SpringCloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot &amp;&amp; SpringCloud原理与应用">
 <meta property="og:url" content="http://yoursite.com/2019/10/27/SpringBoot-SpringCloud原理与应用/index.html">
 <meta property="og:site_name" content="MyStudyBlog">
-<meta property="og:description" content="Druid 配置Bean、.properties、yaml  Lombok  简化getter/setter方法     Eureka注册中心  高可用 负载均衡   Hystrix  保护机制 线程隔离，服务降级 自定义超时时长（源码默认为1000ms） 熔断（熔断器关闭、打开、半开）   Feign  简化代码，取代RestTemplate进行远程调用">
+<meta property="og:description" content="Druid 配置Bean、.properties、yaml  Lombok  简化getter/setter方法     Eureka注册中心  高可用 负载均衡   Hystrix  保护机制 线程隔离，服务降级 自定义超时时长（源码默认为1000ms） 熔断（熔断器关闭、打开、半开）   Feign  简化代码，取代RestTemplate进行远程调用，不用再拼接url 可开启Hystrix">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-28T05:39:17.642Z">
+<meta property="og:updated_time" content="2019-10-28T05:59:40.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot &amp;&amp; SpringCloud原理与应用">
-<meta name="twitter:description" content="Druid 配置Bean、.properties、yaml  Lombok  简化getter/setter方法     Eureka注册中心  高可用 负载均衡   Hystrix  保护机制 线程隔离，服务降级 自定义超时时长（源码默认为1000ms） 熔断（熔断器关闭、打开、半开）   Feign  简化代码，取代RestTemplate进行远程调用">
+<meta name="twitter:description" content="Druid 配置Bean、.properties、yaml  Lombok  简化getter/setter方法     Eureka注册中心  高可用 负载均衡   Hystrix  保护机制 线程隔离，服务降级 自定义超时时长（源码默认为1000ms） 熔断（熔断器关闭、打开、半开）   Feign  简化代码，取代RestTemplate进行远程调用，不用再拼接url 可开启Hystrix">
   
     <link rel="alternative" href="/atom.xml" title="MyStudyBlog" type="application/atom+xml">
   
@@ -102,9 +102,9 @@
 
 
 		<nav>
-		总文章数 13
+		总文章数 14
 		</nav>
-		总字数 <span class="post-count">2k</span>
+		总字数 <span class="post-count">2.9k</span>
 	</header>
 	
 		
@@ -193,7 +193,7 @@
       </header>
 
       <div align="center" class="post-count">
-	字数：76字 | 预计阅读时长：1分钟
+	字数：91字 | 预计阅读时长：1分钟
 	</div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -225,9 +225,11 @@
 </li>
 <li><p><em>Feign</em></p>
 <ul>
-<li>简化代码，取代RestTemplate进行远程调用</li>
-<li></li>
+<li>简化代码，取代RestTemplate进行远程调用，不用再拼接url</li>
+<li>可开启Hystrix熔断</li>
 </ul>
+</li>
+<li><p>Zuul网关<br>- </p>
 </li>
 </ul>
 
@@ -337,6 +339,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/10/28/关于Java使用遍历时的诡异指针/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          关于Java使用遍历时的诡异指针
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/21/10-21/" id="article-nav-older" class="article-nav-link-wrap">
@@ -488,15 +499,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Andriod</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HEXO</a>
+                <a href="javascript:void(0)" class="js-tag color3">Andriod</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,11 +523,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HEXO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">STS</a>
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,15 +547,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">STS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电商</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
