@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SpringBoot &amp;&amp; SpringCloud原理与应用 | MyStudyBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Druid 配置Bean、.properties、yaml  Lombok  简化getter/setter方法     Eureka注册中心  高可用 负载均衡   Hystrix  保护机制 线程隔离，服务降级 自定义超时时长（源码默认为1000ms） 熔断（熔断器关闭、打开、半开）   Feign  简化代码，取代RestTemplate进行远程调用，不用再拼接url 可开启Hystrix">
+  <meta name="description" content="Study Document">
 <meta name="keywords" content="SpringBoot,SpringCloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot &amp;&amp; SpringCloud原理与应用">
 <meta property="og:url" content="http://yoursite.com/2019/10/27/SpringBoot-SpringCloud原理与应用/index.html">
 <meta property="og:site_name" content="MyStudyBlog">
-<meta property="og:description" content="Druid 配置Bean、.properties、yaml  Lombok  简化getter/setter方法     Eureka注册中心  高可用 负载均衡   Hystrix  保护机制 线程隔离，服务降级 自定义超时时长（源码默认为1000ms） 熔断（熔断器关闭、打开、半开）   Feign  简化代码，取代RestTemplate进行远程调用，不用再拼接url 可开启Hystrix">
+<meta property="og:description" content="Study Document">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-29T06:58:03.150Z">
+<meta property="og:updated_time" content="2019-10-29T13:57:18.778Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot &amp;&amp; SpringCloud原理与应用">
-<meta name="twitter:description" content="Druid 配置Bean、.properties、yaml  Lombok  简化getter/setter方法     Eureka注册中心  高可用 负载均衡   Hystrix  保护机制 线程隔离，服务降级 自定义超时时长（源码默认为1000ms） 熔断（熔断器关闭、打开、半开）   Feign  简化代码，取代RestTemplate进行远程调用，不用再拼接url 可开启Hystrix">
+<meta name="twitter:description" content="Study Document">
   
     <link rel="alternative" href="/atom.xml" title="MyStudyBlog" type="application/atom+xml">
   
@@ -104,7 +104,7 @@
 		<nav>
 		总文章数 14
 		</nav>
-		总字数 <span class="post-count">2.9k</span>
+		总字数 <span class="post-count">3k</span>
 	</header>
 	
 		
@@ -193,20 +193,21 @@
       </header>
 
       <div align="center" class="post-count">
-	字数：113字 | 预计阅读时长：1分钟
+	字数：248字 | 预计阅读时长：1分钟
 	</div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><h5 id="Druid"><a href="#Druid" class="headerlink" title="Druid"></a><em>Druid</em></h5><ul>
+        <h3 id="Study-Document"><a href="#Study-Document" class="headerlink" title="Study Document"></a>Study Document</h3><a id="more"></a>
+
+<h4 id="SpringCloud主要要点"><a href="#SpringCloud主要要点" class="headerlink" title="SpringCloud主要要点"></a>SpringCloud主要要点</h4><ul>
+<li><p><em>Druid</em></p>
+</li>
 <li><p>配置Bean、.properties、yaml</p>
 </li>
 <li><p><em>Lombok</em></p>
 <ul>
 <li>简化getter/setter方法</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><p><em>Eureka注册中心</em></p>
@@ -223,6 +224,13 @@
 <li>熔断（熔断器关闭、打开、半开）</li>
 </ul>
 </li>
+<li><p><em>Ribbon</em></p>
+<ul>
+<li>Eureka内部集成Ribbon</li>
+<li>RoundRobinRule：轮询算法</li>
+<li>RandomRule：随机算法</li>
+</ul>
+</li>
 <li><p><em>Feign</em></p>
 <ul>
 <li>简化代码，取代RestTemplate进行远程调用，不用再拼接url</li>
@@ -235,6 +243,31 @@
 <li>使用HTTPServletRequest返回状态码</li>
 </ul>
 </li>
+</ul>
+<h4 id="ECMA6标准"><a href="#ECMA6标准" class="headerlink" title="ECMA6标准"></a>ECMA6标准</h4><ul>
+<li>变量<ul>
+<li>let与const</li>
+</ul>
+</li>
+<li>结构表达式<ul>
+<li>多重解析</li>
+</ul>
+</li>
+<li>函数优化<ul>
+<li>函数赋值定义 “=&gt;”</li>
+</ul>
+</li>
+<li>map与reduce<ul>
+<li>.map(s =&gt; parseInt(s))    //字符串数组转int数组</li>
+<li>.reduce((a,b) =&gt; a+b)    //相当于对数组进行求和，将a+b赋值给a，将数组的下一个元素赋值给b</li>
+</ul>
+</li>
+</ul>
+<h4 id="Vue入门"><a href="#Vue入门" class="headerlink" title="Vue入门"></a>Vue入门</h4><p>MVVM</p>
+<ul>
+<li>vue中使用实现动态变化：onclick =&gt; @click    v-on:click</li>
+<li><span>标签对 v-text 、v-html的使用</span></li>
+<li>计算属性：compute</li>
 </ul>
 
       
@@ -503,23 +536,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HEXO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Andriod</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Internet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Operation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,7 +552,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HEXO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Internet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Operation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">STS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,10 +580,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">STS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电商</a>
               </li>
              
@@ -555,15 +588,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
